@@ -1,0 +1,33 @@
+apply plugin: 'java'
+sourceCompatibility = 11
+targetCompatibility = 11
+
+group 'com.cronnoss.demo-auto-otc'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+// Versioning of dependencies
+wrapper.gradleVersion = '6.9'
+def cucumberVersion = '6.10.4'
+def junitVersion = '5.8.0-M1'
+def selenideVersion = '5.21.0'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${junitVersion}"
+    implementation "com.codeborne:selenide:${selenideVersion}"
+    implementation "org.aeonbits.owner:owner:1.0.12"
+}
+
+test {
+    useJUnitPlatform()
+}
