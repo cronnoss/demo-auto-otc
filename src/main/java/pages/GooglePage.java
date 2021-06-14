@@ -5,7 +5,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class GooglePage {
 
-    public void sendKeys(String text) {
-        $(byName("q")).sendKeys(text + "\n");
+    public void search(String query) {
+        $(byName("q"))
+                .val(query)
+                .pressEnter();
     }
 }

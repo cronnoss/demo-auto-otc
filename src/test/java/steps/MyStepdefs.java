@@ -16,7 +16,7 @@ public class MyStepdefs {
 
     @Then("Input {string}")
     public void inputSearchWord(String arg0) {
-        googlePage.sendKeys(arg0);
+        googlePage.search(arg0);
     }
 
     @Then("Click {string} button")
